@@ -5,3 +5,7 @@
 :root {
   --theme-color: #f3d129;
 }
+
+.container {
+  @apply mx-auto px-5;
+}
