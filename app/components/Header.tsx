@@ -8,7 +8,7 @@ export default function Header() {
 
     const [showMenu, setShowMenu] = useState(false);
   return (
-    <header className="bg-[#f3d129] text-gray-800 border-b-5 border-b-gray-800">
+    <header className="bg-[#f3d129] text-gray-800 border-b-[5px] border-b-gray-800">
       <div className="container flex justify-between items-center py-4">
         <Link href="#"><h1 className="font-bold text-xl">Husam</h1></Link>
         <nav className={`md:flex ${!showMenu && "hidden"} max-md:absolute top-0 left-0 max-md:w-full max-md:h-screen max-md:bg-[#f3d129] flex justify-center items-center`}>
