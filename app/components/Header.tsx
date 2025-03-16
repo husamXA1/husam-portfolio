@@ -19,16 +19,24 @@ export default function Header() {
         >
           <ul className="md:flex gap-5">
             <li>
-              <Link href="#about">About</Link>
+              <Link onClick={() => setShowMenu(false)} href="#about">
+                About
+              </Link>
             </li>
             <li>
-              <Link href="#skills">Skills</Link>
+              <Link onClick={() => setShowMenu(false)} href="#skills">
+                Skills
+              </Link>
             </li>
             <li>
-              <Link href="#projects">Projects</Link>
+              <Link onClick={() => setShowMenu(false)} href="#projects">
+                Projects
+              </Link>
             </li>
             <li>
-              <Link href="#contact">Contact</Link>
+              <Link onClick={() => setShowMenu(false)} href="#contact">
+                Contact
+              </Link>
             </li>
           </ul>
           <button
