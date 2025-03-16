@@ -12,6 +12,7 @@
 }
 
 .shadowed {
+  @apply border-2 border-black;
   box-shadow: 5px 5px 0 black;
 }
 
