@@ -9,3 +9,21 @@
 .container {
   @apply mx-auto px-5;
 }
+
+.btn {
+  @apply px-4 py-2 rounded-xl border-2 border-black font-semibold transition-all lg:text-lg;
+  box-shadow: 5px 5px 0 black;
+}
+
+.btn:hover {
+  @apply opacity-85;
+}
+
+.btn:active {
+  @apply translate-x-[5px] translate-y-[5px];
+  box-shadow: 0 0;
+}
+
+.btn-primary {
+  @apply bg-[--theme-color];
+}
