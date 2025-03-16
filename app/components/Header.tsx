@@ -15,7 +15,7 @@ export default function Header() {
         <nav
           className={`md:flex ${
             !showMenu && "hidden"
-          } max-md:absolute top-0 left-0 max-md:w-full max-md:h-screen max-md:bg-[#f3d129] flex justify-center items-center`}
+          } max-md:fixed top-0 left-0 max-md:w-full max-md:h-screen max-md:bg-[#f3d129] flex justify-center items-center`}
         >
           <ul className="md:flex gap-5">
             <li>
