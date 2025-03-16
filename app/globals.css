@@ -4,6 +4,7 @@
 
 :root {
   --theme-color: #f3d129;
+  scroll-behavior: smooth;
 }
 
 .container {
