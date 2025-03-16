@@ -31,3 +31,7 @@
 .btn-primary {
   @apply bg-[--theme-color];
 }
+
+.btn-small {
+  @apply px-2 py-1 bg-white;
+}

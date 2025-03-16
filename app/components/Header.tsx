@@ -17,7 +17,7 @@ export default function Header() {
             !showMenu && "hidden"
           } max-md:fixed top-0 left-0 max-md:w-full max-md:h-screen max-md:bg-[#f3d129] flex justify-center items-center`}
         >
-          <ul className="md:flex gap-5">
+          <ul className="flex max-md:flex-col gap-2 md:gap-5 items-center text-center">
             <li>
               <Link onClick={() => setShowMenu(false)} href="#about">
                 About
@@ -38,6 +38,12 @@ export default function Header() {
                 Contact
               </Link>
             </li>
+            <Link
+              className="btn btn-small"
+              href="https://docs.google.com/document/d/1TqKdy4PlKYtVR_J2wRINLr-E30pcPp72XnkXwvHa4Qg/edit?usp=sharing"
+            >
+              Download CV
+            </Link>
           </ul>
           <button
             className="md:hidden absolute top-5 right-5"
