@@ -13,7 +13,7 @@ export default function About() {
             height={1080}
           />
         </div>
-        <div className="w-full bg-white p-10 rounded-lg shadowed flex flex-col gap-2 items-start">
+        <div className="w-full bg-white p-10 shadowed flex flex-col gap-2 items-start">
           <h2 className="text-3xl font-bold">About Me</h2>
           <p className="text-lg">
             A Web Developer with a focus on front-end development using React,
