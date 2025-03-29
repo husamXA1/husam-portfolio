@@ -28,9 +28,9 @@ export default function Skills() {
         <h2 className="text-center text-2xl lg:text-3xl font-bold mb-5">
           My Skills
         </h2>
-        <div className="flex flex-wrap gap-6 justify-center">
+        <div className="flex flex-wrap gap-10 justify-center">
           {skills.map((skill, index) => (
-            <div key={index} className="p-8 shadowed basis-80 grow-[0.5]">
+            <div key={index} className="p-8 shadowed w-[320px]">
                 <Image 
                     src={skill.imageURL}
                     alt={skill.title}
