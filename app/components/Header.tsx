@@ -7,7 +7,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
   return (
-    <header className="bg-[#f3d129] text-black border-b-[5px] border-b-black">
+    <header className="bg-[#f3d129] text-black border-b-[5px] border-b-black fixed w-screen">
       <div className="container flex justify-between items-center py-4">
         <Link href="#">
           <h1 className="font-semibold text-xl">Husam</h1>
