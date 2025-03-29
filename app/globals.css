@@ -2,9 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-VariableFont.ttf') format('truetype');
+}
+
 :root {
   --theme-color: #f3d129;
   scroll-behavior: smooth;
+}
+
+*, *:before, *:after {
+  font-family: 'Roboto', sans-serif;
 }
 
 .container {
