@@ -4,7 +4,7 @@ const projects = [
   {
     title: "ChatPDF",
     description:
-      "ChatPDF SD is an interactive PDF analysis platform built with React.js and hosted on Vercel. It harnesses conversational AI to transform static documents into engaging experiences. With its intuitive chat interface, users can ask questions, receive detailed summaries, and explore complex content effortlessly.",
+      "ChatPDF is an interactive PDF analysis platform built with React.js and hosted on Vercel. It harnesses conversational AI to transform static documents into engaging experiences. With its intuitive chat interface, users can ask questions, receive detailed summaries, and explore complex content effortlessly.",
     imageURL: "/images/ChatPDF.png",
     links: [
       {
