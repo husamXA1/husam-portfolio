@@ -1,10 +1,19 @@
 "use client";
 
 import { initializeApp } from "firebase/app";
-import { addDoc, collection, doc, getFirestore, setDoc } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  getFirestore,
+  setDoc,
+} from "firebase/firestore";
 import { useState } from "react";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const app = initializeApp({
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -24,6 +33,8 @@ export default function Contact() {
     message: "",
   });
 
+  const [sending, setSending] = useState(false);
+
   return (
     <section id="contact" className="py-20">
       <div className="container flex max-md:flex-col gap-5 items-center">
@@ -36,11 +47,25 @@ export default function Contact() {
             onSubmit={async (e) => {
               e.preventDefault();
               // Send to firebase backend
-              await addDoc(collection(db, "Messages"), {
-                ...formData,
-                timestamp: new Date().toISOString()
-              });
-              // TODO: Display success/error message
+              try {
+                setSending(true);
+                toast("Sending your message...", {
+                  type: "info",
+                });
+                await addDoc(collection(db, "Messages"), {
+                  ...formData,
+                  timestamp: new Date().toISOString(),
+                });
+                toast("Message sent!", {
+                  type: "success",
+                });
+              } catch (e) {
+                toast("Error sending message!", {
+                  type: "error",
+                });
+              } finally {
+                setSending(false);
+              }
             }}
             className="flex flex-col gap-2 items-start"
           >
@@ -70,8 +95,16 @@ export default function Contact() {
                 setFormData((curr) => ({ ...curr, message: e.target.value }))
               }
             ></textarea>
-            <button type="submit" className="btn">
-              Send
+            <button
+              type="submit"
+              className={`${
+                sending
+                  ? "shadowed px-4 py-2 font-semibold lg:text-lg opacity-25"
+                  : "btn"
+              }`}
+              disabled={sending}
+            >
+              {sending ? "Sending..." : "Send"}
             </button>
           </form>
         </div>
@@ -91,6 +124,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
+      <ToastContainer position="bottom-right" />
     </section>
   );
 }
