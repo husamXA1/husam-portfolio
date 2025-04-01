@@ -1,8 +1,21 @@
 "use client";
 
+import { initializeApp } from "firebase/app";
+import { addDoc, collection, doc, getFirestore, setDoc } from "firebase/firestore";
 import { useState } from "react";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+
+const app = initializeApp({
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+});
+
+const db = getFirestore(app);
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -20,11 +33,13 @@ export default function Contact() {
             Feel free to reach out for collaborations or just to say hi!
           </p>
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
-              console.log(formData);
-              console.log("Sending...");
-              // TODO: Send to firebase backend
+              // Send to firebase backend
+              await addDoc(collection(db, "Messages"), {
+                ...formData,
+                timestamp: new Date().toISOString()
+              });
               // TODO: Display success/error message
             }}
             className="flex flex-col gap-2 items-start"
