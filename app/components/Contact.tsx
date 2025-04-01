@@ -61,6 +61,7 @@ export default function Contact() {
                 toast("Error sending message!", {
                   type: "error",
                 });
+                console.error(e);
               } finally {
                 setSending(false);
               }
