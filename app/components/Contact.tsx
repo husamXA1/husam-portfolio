@@ -4,9 +4,7 @@ import { initializeApp } from "firebase/app";
 import {
   addDoc,
   collection,
-  doc,
   getFirestore,
-  setDoc,
 } from "firebase/firestore";
 import { useState } from "react";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
