@@ -93,7 +93,7 @@ export default function Admin() {
                 );
             }}
           >
-            <h1 className="font-bold text-xl">Husam's Dashboard</h1>
+            <h1 className="font-bold text-xl">Husam&apos;s Dashboard</h1>
             <input
               type="email"
               name="email"
