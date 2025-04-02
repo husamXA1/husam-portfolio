@@ -1,24 +1,13 @@
 "use client";
 
-import { initializeApp } from "firebase/app";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
+import { firestore as db } from "../utils/firebase";
 import { useEffect, useState } from "react";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 
 import { ToastContainer, toast, ToastPosition } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-const app = initializeApp({
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-});
-
-const db = getFirestore(app);
 
 export default function Contact() {
   const [formData, setFormData] = useState({
