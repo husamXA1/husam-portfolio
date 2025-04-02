@@ -2,11 +2,11 @@
 
 import { initializeApp } from "firebase/app";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast, ToastPosition } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const app = initializeApp({
@@ -28,6 +28,23 @@ export default function Contact() {
   });
 
   const [sending, setSending] = useState(false);
+
+  const [toastPosition, setToastPosition] = useState<ToastPosition>("bottom-right");
+
+  useEffect(() => {
+    const updatePosition = () => {
+      if (window.innerWidth < 768) {
+        setToastPosition("top-center");
+      } else {
+        setToastPosition("bottom-right");
+      }
+    };
+
+    updatePosition(); // Set initial position
+    window.addEventListener("resize", updatePosition);
+
+    return () => window.removeEventListener("resize", updatePosition);
+  }, []);
 
   return (
     <section id="contact" className="py-20">
@@ -126,7 +143,7 @@ export default function Contact() {
       </div>
       <ToastContainer
         newestOnTop
-        position={window.innerWidth < 768 ? "top-center" : "bottom-right"}
+        position={toastPosition}
       />
     </section>
   );
