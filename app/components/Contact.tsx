@@ -128,7 +128,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <ToastContainer position="bottom-right" />
+      <ToastContainer position={window.innerWidth < 768 ? "top-center" : "bottom-right"} />
     </section>
   );
 }
