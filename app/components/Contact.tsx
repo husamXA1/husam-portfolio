@@ -57,6 +57,11 @@ export default function Contact() {
                 toast("Message sent!", {
                   type: "success",
                 });
+                setFormData({
+                  name: "",
+                  email: "",
+                  message: "",
+                });
               } catch (e) {
                 toast("Error sending message!", {
                   type: "error",
