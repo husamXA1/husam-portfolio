@@ -1,11 +1,7 @@
 "use client";
 
 import { initializeApp } from "firebase/app";
-import {
-  addDoc,
-  collection,
-  getFirestore,
-} from "firebase/firestore";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { useState } from "react";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
@@ -128,7 +124,10 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <ToastContainer position={window.innerWidth < 768 ? "top-center" : "bottom-right"} />
+      <ToastContainer
+        newestOnTop
+        position={window.innerWidth < 768 ? "top-center" : "bottom-right"}
+      />
     </section>
   );
 }
