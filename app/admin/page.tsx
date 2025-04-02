@@ -1,9 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { auth } from "../utils/firebase";
-import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { auth, firestore } from "../utils/firebase";
+import {
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 import { toast, ToastContainer, ToastPosition } from "react-toastify";
+import { collection, DocumentData, getDocs } from "firebase/firestore";
 
 export default function Admin() {
   const [signedIn, setSignedIn] = useState(false);
@@ -11,6 +16,13 @@ export default function Admin() {
     email: "",
     password: "",
   });
+  const [messages, setMessages] = useState<DocumentData[]>([]);
+
+  useEffect(() => {
+    getDocs(collection(firestore, "Messages")).then((data) => {
+      setMessages(data.docs.map((doc) => doc.data()));
+    });
+  }, []);
 
   const [toastPosition, setToastPosition] =
     useState<ToastPosition>("bottom-right");
@@ -40,7 +52,21 @@ export default function Admin() {
   return (
     <div className="bg-[--theme-color]">
       {signedIn ? (
-        <h1>SignedIn</h1>
+        <div>
+          <button
+            className="btn bg-white"
+            onClick={() => {
+              signOut(auth);
+            }}
+          >
+            Sign Out
+          </button>
+          <div>
+            {messages.map((doc, index) => (
+              <h1 key={index}>{JSON.stringify(doc)}</h1>
+            ))}
+          </div>
+        </div>
       ) : (
         <div className="flex justify-center items-center h-screen">
           <form
