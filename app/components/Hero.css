@@ -1,0 +1,8 @@
+.typewriter {
+    transition: 1s;
+    transform-origin: 50% 50%;
+}
+
+.typewriter.typing {
+    transform: scale(0);
+}
