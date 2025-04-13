@@ -52,25 +52,48 @@ export default function Admin() {
     }
   });
   return (
-    <div className="bg-[--theme-color]">
+    <div>
       {signedIn ? (
         <div>
-          <button
-            className="btn bg-white"
-            onClick={() => {
-              signOut(auth);
-            }}
-          >
-            Sign Out
-          </button>
-          <div>
-            {messages.map((doc, index) => (
-              <h1 key={index}>{JSON.stringify(doc)}</h1>
-            ))}
+          <header className="bg-[--theme-color] border-b-[5px] border-black">
+            <div className="container flex justify-between items-center py-2">
+              <h1 className="font-bold text-lg">Welcome Back, Husam! 👋</h1>
+              <button
+                className="btn bg-white"
+                onClick={() => {
+                  signOut(auth);
+                }}
+              >
+                Sign Out
+              </button>
+            </div>
+          </header>
+          <div className="container my-5">
+            {messages.length > 0 ? (
+              <div>
+                <h2 className="text-center font-bold text-xl mb-5">Your Messages</h2>
+                <div className="flex justify-center gap-5 flex-wrap">
+                  {messages.map((doc, index) => (
+                    <div key={index} className="shadowed p-3">
+                      <h2 className="font-bold text-lg">From: {doc.name}</h2>
+                      <p className="text-gray-700">{doc.message}</p>
+                      <p className="text-sm text-gray-500">
+                        Email: {doc.email}
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        Received on: {doc.timestamp}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <h1 className="text-center my-5">No messages found.</h1>
+            )}
           </div>
         </div>
       ) : (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center h-screen bg-[--theme-color]">
           <form
             className="bg-white flex flex-col justify-center items-center gap-3 my-10 shadowed p-5"
             onSubmit={(e) => {
