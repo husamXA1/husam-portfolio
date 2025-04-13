@@ -62,6 +62,9 @@ export default function Admin() {
                 className="btn bg-white"
                 onClick={() => {
                   signOut(auth);
+                  toast("Signed out!", {
+                    type: "info",
+                  });
                 }}
               >
                 Sign Out
