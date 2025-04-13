@@ -19,10 +19,12 @@ export default function Admin() {
   const [messages, setMessages] = useState<DocumentData[]>([]);
 
   useEffect(() => {
-    getDocs(collection(firestore, "Messages")).then((data) => {
-      setMessages(data.docs.map((doc) => doc.data()));
-    });
-  }, []);
+    if (signedIn) {
+      getDocs(collection(firestore, "Messages")).then((data) => {
+        setMessages(data.docs.map((doc) => doc.data()));
+      });
+    }
+  }, [signedIn]);
 
   const [toastPosition, setToastPosition] =
     useState<ToastPosition>("bottom-right");
