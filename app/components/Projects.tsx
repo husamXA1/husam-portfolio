@@ -37,7 +37,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="bg-[--theme-color] py-20">
+    <section id="projects" className="bg-gray-100 py-20">
       <h2 className="text-center text-2xl lg:text-3xl font-bold mb-5">
         My Projects
       </h2>

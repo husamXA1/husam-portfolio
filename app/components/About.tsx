@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function About() {
   return (
-    <section className="bg-[--theme-color] py-20" id="about">
+    <section className="bg-gray-100 py-20" id="about">
       <div className="container flex max-lg:flex-col gap-10 items-center">
         <div className="w-full">
           <Image
