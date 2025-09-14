@@ -1,0 +1,8 @@
+header a {
+    transition: font-size 0.3s;
+}
+
+header a:hover:not(.btn) {
+    text-decoration: underline;
+    font-size: 1.25em;
+}
